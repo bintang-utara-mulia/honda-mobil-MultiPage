@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Halaman utama
+// Halaman utama - Mobil Honda
 Route::get('/', function () {
     return view('mobil');
 });
@@ -10,9 +10,4 @@ Route::get('/', function () {
 // Halaman Mobil Honda
 Route::get('/mobil', function () {
     return view('mobil');
-});
-
-// Halaman Motor Honda
-Route::get('/motor', function () {
-    return view('motor');
 });
