@@ -22,7 +22,7 @@
 
                 <!-- Logo -->
                 <a href="/" class="text-2xl font-bold text-white">
-                    Honda Sales
+                    Honda Mobil
                 </a>
 
                 <!-- Menu Desktop -->

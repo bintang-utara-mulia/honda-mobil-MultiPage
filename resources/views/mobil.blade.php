@@ -8,7 +8,7 @@
 
         <div>
             <span class="inline-block bg-white/20 px-4 py-2 rounded-full text-sm font-semibold mb-5">
-                HONDA SALES
+                HONDA MOBIL
             </span>
 
             <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
