@@ -2,12 +2,30 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Halaman utama - Mobil Honda
 Route::get('/', function () {
-    return view('mobil');
-});
+    return view('home');
+})->name('home');
 
-// Halaman Mobil Honda
 Route::get('/mobil', function () {
     return view('mobil');
-});
+})->name('mobil');
+
+Route::get('/tentang', function () {
+    return view('tentang');
+})->name('tentang');
+
+Route::get('/promo', function () {
+    return view('promo');
+})->name('promo');
+
+Route::get('/testimoni', function () {
+    return view('testimoni');
+})->name('testimoni');
+
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+
+Route::get('/kontak', function () {
+    return view('kontak');
+})->name('kontak');

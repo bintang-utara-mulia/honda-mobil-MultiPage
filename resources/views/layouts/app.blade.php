@@ -5,68 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Honda Sales</title>
+    <title>Honda Mobil</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-gray-100">
 
-    <!-- ==================== NAVBAR ==================== -->
-    <!-- sticky top-0 membuat header tetap ikut saat halaman di-scroll -->
+    <!-- NAVBAR -->
     <nav class="sticky top-0 z-50 bg-red-600 shadow-lg">
 
         <div class="max-w-7xl mx-auto px-6 py-4">
 
             <div class="flex justify-between items-center">
 
-                <!-- Logo -->
-                <a href="/" class="text-2xl font-bold text-white">
+                <!-- LOGO -->
+                <a href="{{ route('home') }}"
+                   class="text-2xl font-bold text-white">
                     Honda Mobil
                 </a>
 
-                <!-- Menu Desktop -->
+                <!-- MENU DESKTOP -->
                 <ul class="hidden md:flex gap-6 text-white font-medium">
 
                     <li>
-                        <a href="/" class="hover:text-gray-200 transition">
+                        <a href="{{ route('home') }}"
+                           class="hover:text-gray-200 transition">
                             Home
                         </a>
                     </li>
 
                     <li>
-                        <a href="#produk" class="hover:text-gray-200 transition">
+                        <a href="{{ route('mobil') }}"
+                           class="hover:text-gray-200 transition">
                             Produk
                         </a>
                     </li>
 
                     <li>
-                        <a href="#promo" class="hover:text-gray-200 transition">
+                        <a href="{{ route('tentang') }}"
+                           class="hover:text-gray-200 transition">
+                            Tentang
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('promo') }}"
+                           class="hover:text-gray-200 transition">
                             Promo
                         </a>
                     </li>
 
                     <li>
-                        <a href="#testimoni" class="hover:text-gray-200 transition">
+                        <a href="{{ route('testimoni') }}"
+                           class="hover:text-gray-200 transition">
                             Testimoni
                         </a>
                     </li>
 
                     <li>
-                        <a href="#faq" class="hover:text-gray-200 transition">
+                        <a href="{{ route('faq') }}"
+                           class="hover:text-gray-200 transition">
                             FAQ
                         </a>
                     </li>
 
                     <li>
-                        <a href="#kontak" class="hover:text-gray-200 transition">
+                        <a href="{{ route('kontak') }}"
+                           class="hover:text-gray-200 transition">
                             Kontak
                         </a>
                     </li>
 
                 </ul>
 
-                <!-- Tombol Menu Mobile -->
+                <!-- TOMBOL MOBILE -->
                 <button
                     class="md:hidden text-white text-3xl focus:outline-none"
                     onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
@@ -79,51 +92,57 @@
             </div>
 
 
-            <!-- ==================== MENU MOBILE ==================== -->
-
+            <!-- MENU MOBILE -->
             <div id="mobile-menu"
                  class="hidden md:hidden mt-4 border-t border-red-500 pt-4">
 
-                <ul class="flex flex-col gap-3 text-white font-medium">
+                <ul class="flex flex-col gap-2 text-white font-medium">
 
                     <li>
-                        <a href="/"
-                           class="block py-2 hover:bg-red-700 rounded px-3">
+                        <a href="{{ route('home') }}"
+                           class="block py-2 px-3 hover:bg-red-700 rounded">
                             Home
                         </a>
                     </li>
 
                     <li>
-                        <a href="#produk"
-                           class="block py-2 hover:bg-red-700 rounded px-3">
+                        <a href="{{ route('mobil') }}"
+                           class="block py-2 px-3 hover:bg-red-700 rounded">
                             Produk
                         </a>
                     </li>
 
                     <li>
-                        <a href="#promo"
-                           class="block py-2 hover:bg-red-700 rounded px-3">
+                        <a href="{{ route('tentang') }}"
+                           class="block py-2 px-3 hover:bg-red-700 rounded">
+                            Tentang
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('promo') }}"
+                           class="block py-2 px-3 hover:bg-red-700 rounded">
                             Promo
                         </a>
                     </li>
 
                     <li>
-                        <a href="#testimoni"
-                           class="block py-2 hover:bg-red-700 rounded px-3">
+                        <a href="{{ route('testimoni') }}"
+                           class="block py-2 px-3 hover:bg-red-700 rounded">
                             Testimoni
                         </a>
                     </li>
 
                     <li>
-                        <a href="#faq"
-                           class="block py-2 hover:bg-red-700 rounded px-3">
+                        <a href="{{ route('faq') }}"
+                           class="block py-2 px-3 hover:bg-red-700 rounded">
                             FAQ
                         </a>
                     </li>
 
                     <li>
-                        <a href="#kontak"
-                           class="block py-2 hover:bg-red-700 rounded px-3">
+                        <a href="{{ route('kontak') }}"
+                           class="block py-2 px-3 hover:bg-red-700 rounded">
                             Kontak
                         </a>
                     </li>
@@ -137,27 +156,25 @@
     </nav>
 
 
-    <!-- ==================== ISI LANDING PAGE ==================== -->
-
+    <!-- CONTENT -->
     @yield('content')
 
 
-    <!-- ==================== FOOTER ==================== -->
-
+    <!-- FOOTER -->
     <footer class="bg-gray-900 text-white py-10 mt-20">
 
         <div class="max-w-7xl mx-auto px-6 text-center">
 
             <h2 class="text-2xl font-bold">
-                Honda Sales
+                Honda Mobil
             </h2>
 
             <p class="mt-3 text-gray-400">
-                Dealer Mobil & Motor Honda Terpercaya
+                Dealer Mobil Honda Terpercaya
             </p>
 
             <p class="mt-2 text-gray-400">
-                Siap membantu Anda menemukan kendaraan Honda terbaik.
+                Siap membantu Anda menemukan mobil Honda terbaik.
             </p>
 
             <div class="mt-6 flex flex-col md:flex-row justify-center gap-4 text-sm">
@@ -167,7 +184,7 @@
                 </span>
 
                 <span>
-                    📧 hondasales@email.com
+                    📧 info@hondasales.com
                 </span>
 
                 <span>
@@ -177,7 +194,7 @@
             </div>
 
             <p class="mt-6 text-sm text-gray-500">
-                © 2026 Honda Sales. All Rights Reserved.
+                © 2026 Honda Mobil. All Rights Reserved.
             </p>
 
         </div>
@@ -185,8 +202,7 @@
     </footer>
 
 
-    <!-- ==================== WHATSAPP FLOATING ==================== -->
-
+    <!-- WHATSAPP -->
     <a
         href="https://wa.me/6281234567890"
         target="_blank"
