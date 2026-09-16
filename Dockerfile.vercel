@@ -30,4 +30,4 @@ RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 
 ENV SERVER_NAME=:80
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-80}"]
