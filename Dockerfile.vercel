@@ -1,0 +1,33 @@
+FROM dunglas/frankenphp:php8.3-bookworm
+
+WORKDIR /app
+
+COPY . .
+
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev \
+    libicu-dev \
+    nodejs \
+    npm \
+    && docker-php-ext-install \
+    pdo_mysql \
+    intl \
+    zip \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+RUN composer install --no-dev --optimize-autoloader
+
+RUN npm install
+RUN npm run build
+
+RUN php artisan storage:link
+
+RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
+
+ENV SERVER_NAME=:80
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
