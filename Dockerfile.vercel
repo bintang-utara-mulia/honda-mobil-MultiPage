@@ -13,16 +13,10 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y nodejs \
-    && docker-php-ext-install \
-    pdo_mysql \
-    intl \
-    zip \
+    && docker-php-ext-install pdo_mysql intl zip \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-RUN node --version
-RUN npm --version
 
 RUN composer install --no-dev --optimize-autoloader
 
@@ -30,9 +24,13 @@ RUN npm install
 
 RUN npm run build
 
-RUN php artisan storage:link
+RUN mkdir -p storage/framework/cache \
+    storage/framework/sessions \
+    storage/framework/views \
+    storage/logs \
+    bootstrap/cache
 
-RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
 ENV SERVER_NAME=:80
 ENV LOG_CHANNEL=stderr
