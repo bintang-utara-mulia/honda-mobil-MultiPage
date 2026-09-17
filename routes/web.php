@@ -3,7 +3,22 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    try {
+        return view('home');
+    } catch (\Throwable $e) {
+        return response(
+            '<pre>' .
+            $e->getMessage() .
+            "\n\n" .
+            $e->getFile() .
+            ':' .
+            $e->getLine() .
+            "\n\n" .
+            $e->getTraceAsString() .
+            '</pre>',
+            500
+        );
+    }
 })->name('home');
 
 Route::get('/mobil', function () {
