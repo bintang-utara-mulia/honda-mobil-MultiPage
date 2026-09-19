@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return 'TES VERCEL BERHASIL';
+    return view('welcome');
 })->name('home');
 
 Route::get('/mobil', function () {
